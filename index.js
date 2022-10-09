@@ -1,8 +1,9 @@
-const Koa = require('koa')
+import Koa from 'koa'
+
 const app = new Koa();
 
 app.use(async ctx => {
-    ctx.body = 'Olá Mundo!';
+    ctx.body = { ola: 'Mundo' };
 });
 
 app.listen(3000);

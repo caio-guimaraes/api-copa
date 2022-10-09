@@ -1,0 +1,12 @@
+{
+  "name": "api-copa",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": {
+    "name": "Caio Guimarães",
+    "email": "caio23guimaraes@gmail.com"
+  },
+  "license": "MIT"
+}

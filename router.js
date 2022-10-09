@@ -9,3 +9,11 @@ router.get('/', async ctx => {
 router.get('/users', async ctx => {
     ctx.body = { ola: 'Users' };
 });
+
+router.post('/users', async ctx => {
+    const user = {
+        username: ctx.request.body.username
+    }
+
+    ctx.body = user
+});

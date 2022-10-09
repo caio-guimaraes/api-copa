@@ -1,4 +1,8 @@
-[
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
+const games = [
     {
       "gameTime": "2022-11-20T16:00:00Z",
       "homeTeam": "cat",
@@ -241,5 +245,12 @@
       "homeTeam": "cam",
       "awayTeam": "bra"
     }
-  ]
-  
+]
+
+async function main() {
+    await prisma.game.createMany({
+        data: games
+    })
+}
+
+main()

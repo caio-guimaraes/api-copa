@@ -13,7 +13,7 @@ export const create = async (ctx) => {
     }
 
     try {
-        const user = await prisma.user.create({ data })
+        const { password, ...user } = await prisma.user.create({ data })
         ctx.body = user
         ctx.status = 201
     } catch (error) {

@@ -2,11 +2,13 @@
   "name": "api-copa",
   "version": "0.0.0",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": {
     "name": "Caio Guimarães",
     "email": "caio23guimaraes@gmail.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.13.4"
+  }
 }

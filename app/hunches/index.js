@@ -1,8 +1,12 @@
 import { PrismaClient } from '@prisma/client'
+import jwt from 'jsonwebtoken'
 
 const prisma = new PrismaClient()
 
 export const create = async (ctx) => {
+    const [type, token] = ctx.headers.authorization.split(" ")
+    const data = jwt.verify(token, process.env.JWT_SECRET)
+    
     if (!ctx.request.body.homeTeamScore && !ctx.request.body.awayTeamScore) {
         ctx.status = 500
         return

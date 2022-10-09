@@ -21,14 +21,3 @@ export const create = async (ctx) => {
         ctx.status = 500
     }
 }
-
-export const list = async (ctx) => {
-    try {
-        const users = await prisma.user.findMany()
-        ctx.body = users
-        ctx.status = 200
-    } catch (error) {
-        ctx.body = error
-        ctx.status = 500
-    }
-}

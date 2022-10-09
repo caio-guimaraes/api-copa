@@ -8,7 +8,8 @@ export const router = new Router();
 router.get('/login', users.login);
 router.post('/users', users.create);
 
-// router.get('/hunches', hunches.list);
 router.post('/hunches', hunches.create);
 
 router.get('/games', games.list);
+
+router.get('/:username', hunches.list);

@@ -5,15 +5,15 @@ import { addDays, formatISO } from 'date-fns'
 const prisma = new PrismaClient()
 
 export const list = async (ctx) => {
-    if (!ctx.headers.authorization) {
-        ctx.status = 401
-        return
-    }
+    // if (!ctx.headers.authorization) {
+    //     ctx.status = 401
+    //     return
+    // }
 
-    const [type, token] = ctx.headers.authorization.split(" ")
+    // const [type, token] = ctx.headers.authorization.split(" ")
 
     try {
-        const data = jwt.verify(token, process.env.JWT_SECRET)
+        // const data = jwt.verify(token, process.env.JWT_SECRET)
 
         const currentDate = ctx.request.query.gameTime
     

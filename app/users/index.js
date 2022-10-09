@@ -21,3 +21,31 @@ export const create = async (ctx) => {
         ctx.status = 500
     }
 }
+
+export const login = async (ctx) => {
+    const [type, token] = ctx.headers.authorization.split(" ")
+    const [email, textPassword]  = atob(token).split(":")
+
+    console.log({ email, textPassword })
+
+    const user = await prisma.user.findUnique({
+        where: { email }
+    })
+
+    console.log('user', user)
+
+    if(!user) {
+        ctx.status = 404
+        return
+    }
+
+    const passwordMatch = await bcrypt.compare(textPassword, user.password)
+
+    if(!passwordMatch) {
+        ctx.status = 404
+        return
+    }
+
+    const { password, ...result } = user
+    ctx.body = result
+}

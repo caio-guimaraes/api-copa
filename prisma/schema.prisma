@@ -34,6 +34,9 @@ model Game {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  // Garante que não exista jogos duplicados
+  @@unique([homeTeam, awayTeam, gameTime])
 }
 
 model Hunch {

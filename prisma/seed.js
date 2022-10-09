@@ -248,9 +248,15 @@ const games = [
 ]
 
 async function main() {
-    await prisma.game.createMany({
+    const data = await prisma.game.createMany({
         data: games
     })
+
+    return data;
 }
 
-main()
+main().then((result) => {
+    console.log(result)
+}).catch((error) => {
+    console.log(error)
+})
